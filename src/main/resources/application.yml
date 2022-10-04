@@ -22,10 +22,10 @@ server:
 
 spring:
   application:
-    name: customer
+    name: Project of Khanh
   datasource:
-    password: password
     url: jdbc:postgresql://localhost:5432/server_db
+    password: password
     username: user
   jpa:
     hibernate:
@@ -35,3 +35,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+
+keycloak:
+  realm: javapuzzle
+  auth-server-url: http://localhost:8180
+  resource: base
+  public-client: true
+  bearer-only: true

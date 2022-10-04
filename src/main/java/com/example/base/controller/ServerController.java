@@ -9,6 +9,7 @@ import com.example.base.service.impl.ServerServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,6 +24,7 @@ public class ServerController {
     private final ServerServiceImpl serverService;
 
     @GetMapping("/list")
+    @RolesAllowed({"employee"})
     public ApiResponse getServers(@RequestHeader(name = "clientMessageId") String clientMessageId,
                                 @RequestParam(defaultValue = "2") Integer limit,
                                 @RequestParam(defaultValue = "1") Integer page,
